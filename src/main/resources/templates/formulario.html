@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Formulario</title>
+    
+  </head>
+  <body>
+ 
+ <h1>Formulario</h1>
+  <form action = "/formulario" th:object ="${heroe}" method = "post">
+  	<label>Nombre del héroe</label>
+  	<input type= "text" th:field = "*{nombre}" />
+  	<label>Superpoder</label>
+  	<input type = "text" th:field ="*{superpoder}" />
+
+
+  	<input type = "submit" value = "Enviar Informacion" />
+  </form>
+  
+ <table>
+ 	<tr>
+ 		<th> Nombre del héroe</th>
+ 		<th> Superpoder </th>
+ 
+ </tr>
+ 
+  <tr th:each = "h: ${heroesFavoritos}">
+  <td th:text = "${h.getNombre()}"></td>
+  <td th:text = "${h.getSuperpoder()}"></td>
+  
+  </tr>
+ </table>
+ 
+    
+  </body>
+</html>
